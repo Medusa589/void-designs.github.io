@@ -1,13 +1,474 @@
+<!--
+    Creative Portfolio Template
+    Author: John Huikku
+    Copyright © 2025 John Huikku
+    Support & Discussion: https://discord.gg/TWfa3A72
+    
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+    
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+    
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+-->
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Kelly's website</title>
-		<link rel="stylesheet" href="main.css">
-	</head>
-	<body>
-			<h1>Hello World</h1>
-			<p>This is a test web page</p>
-	</body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#000000">
+    <title>Artist Name - Creative Portfolio Template</title>
+    
+    <!-- Google Fonts with preconnect for better performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&family=Rubik+Vinyl&family=Rubik+Glitch+Pop&family=Rubik+Lines&family=Rubik+Broken+Fax&display=swap" rel="stylesheet">
+    
+    <!-- Animation Library - loaded asynchronously -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    
+    <!-- Combined CSS -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">AN</div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#software">Software</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#consulting">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <!-- TIP: Replace the hero_loop.mp4 with your own video for a personalized touch -->
+    <section id="home" class="hero">
+        <video autoplay muted loop id="background-video">
+            <source src="videos/hero_loop.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+            <h1 class="glitch-title">Artist Name</h1>
+            <p>Your professional tagline here - describe your role, specialty, and years of experience in your field.</p>
+            <div class="scroll-down">↓</div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 data-aos="fade-up">About Me</h2>
+            <div class="about-grid">
+                <!-- Headshot photo in its own container - Replace with your own headshot -->
+                <div class="about-photo-container" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/artist_headshot.webp" alt="Artist Headshot" loading="lazy">
+                </div>
+                
+                <!-- Four content sections in a grid layout -->
+                <div class="about-content">
+                    <div class="about-item" data-aos="fade-up" data-aos-delay="200">
+                        <h3>Who Am I?</h3>
+                        <p>Introduce yourself with your name, primary specialties, and years of experience. Highlight your main industry or field of expertise and any notable accomplishments.</p>
+                    </div>
+                    <div class="about-item" data-aos="fade-up" data-aos-delay="300">
+                        <h3>What Do I Do?</h3>
+                        <p>List your main professional services or skills. Keep this focused on what you can offer clients or employers. For example: CG supervision, lighting, VFX, animation, etc.</p>
+                    </div>
+                    <div class="about-item" data-aos="fade-up" data-aos-delay="400">
+                        <h3>How Do I Do It?</h3>
+                        <p>Mention the tools, software, or methodologies you use. This helps establish technical credibility and gives visitors insight into your workflow process.</p>
+                    </div>
+                    <div class="about-item" data-aos="fade-up" data-aos-delay="500">
+                        <h3>Where Am I?</h3>
+                        <p>Share your location and availability for work. Mention if you work remotely or are open to relocation. This helps potential clients understand logistics.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <!-- TIP: Replace all thumbnail images with your own work samples. Keep filenames as thumbnail_01.webp etc. -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 data-aos="fade-up">Portfolio</h2>
+            
+            <!-- Portfolio Filter Buttons - Customize categories based on your work -->
+            <div class="portfolio-categories" data-aos="fade-up">
+                <button class="active" data-category="all">All</button>
+                <button data-category="category1">Category 1</button>
+                <button data-category="category2">Category 2</button>
+                <button data-category="category3">Category 3</button>
+                <button data-category="category4">Category 4</button>
+                <button data-category="category5">Category 5</button>
+            </div>
+            
+            <!-- Complete Portfolio Grid -->
+            <!-- TIP: For each portfolio item, set data-category to match your filter buttons -->
+            <!-- TIP: For video items, add data-video-id with YouTube ID, or data-external-url for links -->
+            <div class="portfolio-grid" id="portfolio-grid">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-item" data-category="category1" data-video-id="YOUTUBE_ID_HERE" data-aos="fade-up">
+                    <div class="portfolio-item-inner">
+                        <div class="play-button-overlay"></div>
+                        <img src="images/thumbnail_01.webp" alt="Portfolio Item 1" loading="lazy">
+                        <div class="portfolio-item-info">
+                            <h3 class="portfolio-item-title">Project Title 1</h3>
+                            <p class="portfolio-item-role">Your Role</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 2 -->
+                <div class="portfolio-item" data-category="category2" data-video-id="YOUTUBE_ID_HERE" data-aos="fade-up" data-aos-delay="100">
+                    <div class="portfolio-item-inner">
+                        <div class="play-button-overlay"></div>
+                        <img src="images/thumbnail_02.webp" alt="Portfolio Item 2" loading="lazy">
+                        <div class="portfolio-item-info">
+                            <h3 class="portfolio-item-title">Project Title 2</h3>
+                            <p class="portfolio-item-role">Your Role</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 3 -->
+                <div class="portfolio-item" data-category="category1" data-video-id="YOUTUBE_ID_HERE" data-aos="fade-up" data-aos-delay="150">
+                    <div class="portfolio-item-inner">
+                        <div class="play-button-overlay"></div>
+                        <img src="images/thumbnail_03.webp" alt="Portfolio Item 3" loading="lazy">
+                        <div class="portfolio-item-info">
+                            <h3 class="portfolio-item-title">Project Title 3</h3>
+                            <p class="portfolio-item-role">Your Role</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 4 -->
+                <div class="portfolio-item" data-category="category3" data-video-id="YOUTUBE_ID_HERE" data-aos="fade-up" data-aos-delay="200">
+                    <div class="portfolio-item-inner">
+                        <div class="play-button-overlay"></div>
+                        <img src="images/thumbnail_04.webp" alt="Portfolio Item 4" loading="lazy">
+                        <div class="portfolio-item-info">
+                            <h3 class="portfolio-item-title">Project Title 4</h3>
+                            <p class="portfolio-item-role">Your Role</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 5 -->
+                <div class="portfolio-item" data-category="category2" data-video-id="YOUTUBE_ID_HERE" data-aos="fade-up" data-aos-delay="250">
+                    <div class="portfolio-item-inner">
+                        <div class="play-button-overlay"></div>
+                        <img src="images/thumbnail_05.webp" alt="Portfolio Item 5" loading="lazy">
+                        <div class="portfolio-item-info">
+                            <h3 class="portfolio-item-title">Project Title 5</h3>
+                            <p class="portfolio-item-role">Your Role</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 6 -->
+                <div class="portfolio-item" data-category="category4" data-video-id="YOUTUBE_ID_HERE" data-aos="fade-up" data-aos-delay="300">
+                    <div class="portfolio-item-inner">
+                        <div class="play-button-overlay"></div>
+                        <img src="images/thumbnail_06.webp" alt="Portfolio Item 6" loading="lazy">
+                        <div class="portfolio-item-info">
+                            <h3 class="portfolio-item-title">Project Title 6</h3>
+                            <p class="portfolio-item-role">Your Role</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 7 - External Link Example -->
+                <div class="portfolio-item" data-category="category5" data-external-url="https://your-external-link.com/" data-aos="fade-up" data-aos-delay="350">
+                    <div class="portfolio-item-inner">
+                        <div class="play-button-overlay"></div>
+                        <img src="images/thumbnail_07.webp" alt="Portfolio Item 7" loading="lazy">
+                        <div class="portfolio-item-info">
+                            <h3 class="portfolio-item-title">Project Title 7</h3>
+                            <p class="portfolio-item-role">Your Role</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 8 -->
+                <div class="portfolio-item" data-category="category3" data-video-id="YOUTUBE_ID_HERE" data-aos="fade-up" data-aos-delay="400">
+                    <div class="portfolio-item-inner">
+                        <div class="play-button-overlay"></div>
+                        <img src="images/thumbnail_08.webp" alt="Portfolio Item 8" loading="lazy">
+                        <div class="portfolio-item-info">
+                            <h3 class="portfolio-item-title">Project Title 8</h3>
+                            <p class="portfolio-item-role">Your Role</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Add more portfolio items as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-container">
+            <button class="close-video" id="closeVideo">×</button>
+            <div id="videoPlayer"></div>
+        </div>
+    </div>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 data-aos="fade-up">Experience</h2>
+            <div class="experience-grid">
+                <div class="experience-column" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Recent Experience</h3>
+                    
+                    <!-- TIP: Create one experience-item for each position -->
+                    <div class="experience-item">
+                        <p><strong>Job Title</strong><br>Company Name<br>Location<br>Years</p>
+                        <ul>
+                            <li>Key responsibility or achievement</li>
+                            <li>Another major contribution you made</li>
+                            <li>Technology, tool, or process you implemented</li>
+                            <li>Project you led or completed successfully</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <p><strong>Job Title</strong><br>Company Name<br>Location<br>Years</p>
+                        <ul>
+                            <li>Focus on achievements rather than duties</li>
+                            <li>Include metrics or quantifiable results when possible</li>
+                            <li>Mention specific projects or clients if relevant</li>
+                            <li>Highlight leadership or mentorship roles</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <p><strong>Job Title</strong><br>Company Name<br>Location<br>Years</p>
+                        <ul>
+                            <li>Key accomplishment from this role</li>
+                            <li>Skills developed or technologies mastered</li>
+                            <li>Awards or recognition received</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="experience-column" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Earlier Experience</h3>
+                    
+                    <div class="experience-item">
+                        <p><strong>Job Title</strong><br>Company Name<br>Location<br>Years</p>
+                        <ul>
+                            <li>Highlight transferable skills from earlier roles</li>
+                            <li>Include foundation experiences that shaped your career</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <p><strong>Job Title</strong><br>Company Name<br>Location<br>Years</p>
+                        <ul>
+                            <li>Focus on projects that demonstrate your growth</li>
+                            <li>Mention skills that are still relevant today</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <p><strong>Education</strong><br>Degree<br>Institution<br>Years</p>
+                        <ul>
+                            <li>Relevant coursework or specializations</li>
+                            <li>Academic achievements or projects</li>
+                            <li>Additional certifications or training</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 data-aos="fade-up">Skills & Future Focus</h2>
+            <div class="skills-grid-expanded">
+                <!-- TIP: Add 6-8 skills that showcase your professional expertise -->
+                <div class="skill-expanded-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Core Skill 1</h3>
+                    <p>Describe your expertise in this area. Include specific examples of how you've applied this skill in professional settings. Mention notable projects or achievements that demonstrate your proficiency. For technical skills, note your level of expertise and any specialized techniques you've mastered.</p>
+                </div>
+                
+                <div class="skill-expanded-item" data-aos="fade-up" data-aos-delay="150">
+                    <h3>Core Skill 2</h3>
+                    <p>Explain your capabilities with concrete examples. Focus on how this skill has benefited past clients or employers. Describe your approach to applying this skill and what makes your methodology unique. If relevant, mention tools or technologies you use in conjunction with this skill.</p>
+                </div>
+                
+                <div class="skill-expanded-item" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Core Skill 3</h3>
+                    <p>Detail your experience and proficiency level. Discuss how you've developed this skill throughout your career and how it complements your other abilities. Share insights into your workflow or process when utilizing this skill. If applicable, note any recognition or results you've achieved.</p>
+                </div>
+                
+                <div class="skill-expanded-item" data-aos="fade-up" data-aos-delay="250">
+                    <h3>Future Focus 1</h3>
+                    <p>Highlight an emerging technology or methodology you're actively learning or plan to explore. Discuss why you're interested in this area and how it relates to industry trends. Explain how developing this skill will enhance your professional offerings or advance your career goals.</p>
+                </div>
+                
+                <div class="skill-expanded-item" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Future Focus 2</h3>
+                    <p>Identify another area where you're expanding your capabilities. Explain the relevance to your field and how it complements your existing skill set. Mention any courses, certifications, or projects you're undertaking to develop this expertise. Discuss potential applications in upcoming projects.</p>
+                </div>
+                
+                <div class="skill-expanded-item" data-aos="fade-up" data-aos-delay="350">
+                    <h3>Specialized Technique</h3>
+                    <p>Describe a specialized technique or approach that sets you apart from others in your field. Explain how you developed this expertise and the specific advantages it offers. Provide examples of successful implementation and results achieved. Note if this is a rare or in-demand skill in your industry.</p>
+                </div>
+                
+                <div class="skill-expanded-item" data-aos="fade-up" data-aos-delay="400">
+                    <h3>Leadership Skill</h3>
+                    <p>Detail your experience leading teams or projects. Discuss your management style and approach to collaboration. Highlight successful team outcomes under your leadership. Include information about your communication methods, problem-solving approach, or conflict resolution techniques.</p>
+                </div>
+                
+                <div class="skill-expanded-item" data-aos="fade-up" data-aos-delay="450">
+                    <h3>Cross-Disciplinary Skill</h3>
+                    <p>Explain how you bridge different disciplines or domains in your work. Discuss the advantages of your multidisciplinary approach and how it enhances project outcomes. Provide examples of work that showcases this integration of different skills or methodologies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Software Section -->
+    <!-- TIP: Replace with software tools relevant to your field -->
+    <section id="software" class="software">
+        <div class="container">
+            <h2 data-aos="fade-up">Software</h2>
+            <div class="software-grid">
+                <div class="software-item" data-aos="fade-up" data-aos-delay="100"><img src="https://placehold.co/200x200/3D3D3D/FFFFFF?text=Software1" alt="Software 1" loading="lazy"></div>
+                <div class="software-item" data-aos="fade-up" data-aos-delay="150"><img src="https://placehold.co/200x200/3D3D3D/FFFFFF?text=Software2" alt="Software 2" loading="lazy"></div>
+                <div class="software-item" data-aos="fade-up" data-aos-delay="200"><img src="https://placehold.co/200x200/3D3D3D/FFFFFF?text=Software3" alt="Software 3" loading="lazy"></div>
+                <div class="software-item" data-aos="fade-up" data-aos-delay="250"><img src="https://placehold.co/200x200/3D3D3D/FFFFFF?text=Software4" alt="Software 4" loading="lazy"></div>
+                <div class="software-item" data-aos="fade-up" data-aos-delay="300"><img src="https://placehold.co/200x200/3D3D3D/FFFFFF?text=Software5" alt="Software 5" loading="lazy"></div>
+                <div class="software-item" data-aos="fade-up" data-aos-delay="350"><img src="https://placehold.co/200x200/3D3D3D/FFFFFF?text=Software6" alt="Software 6" loading="lazy"></div>
+                <div class="software-item" data-aos="fade-up" data-aos-delay="400"><img src="https://placehold.co/200x200/3D3D3D/FFFFFF?text=Software7" alt="Software 7" loading="lazy"></div>
+                <div class="software-item" data-aos="fade-up" data-aos-delay="450"><img src="https://placehold.co/200x200/3D3D3D/FFFFFF?text=Software8" alt="Software 8" loading="lazy"></div>
+                <div class="software-item" data-aos="fade-up" data-aos-delay="500"><img src="https://placehold.co/200x200/3D3D3D/FFFFFF?text=Software9" alt="Software 9" loading="lazy"></div>
+                <!-- Add more software items as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section (formerly Consulting) -->
+    <section id="consulting" class="consulting">
+        <div class="container">
+            <h2 data-aos="fade-up">Services & Specialties</h2>
+            <div class="consulting-content" data-aos="fade-up" data-aos-delay="100">
+                <p>Describe the professional services you offer. This is your opportunity to explain what clients can expect when working with you. Focus on the value you provide and the specific problems you solve.</p>
+                
+                <h3 class="expertise-header" data-aos="fade-up" data-aos-delay="150">Areas of Expertise:</h3>
+                
+                <div class="consulting-grid">
+                    <!-- TIP: Add 4-6 service offerings -->
+                    <div class="consulting-item" data-aos="fade-up" data-aos-delay="200">
+                        <h4 class="expertise-area">Service Offering 1</h4>
+                        <p>Describe this service in detail. Explain your approach, process, and expected outcomes. Highlight any specialized techniques or tools you use. If possible, mention typical timeframes or deliverables clients can expect.</p>
+                    </div>
+                    
+                    <div class="consulting-item" data-aos="fade-up" data-aos-delay="250">
+                        <h4 class="expertise-area">Service Offering 2</h4>
+                        <p>Explain what makes your approach to this service unique. Describe the benefits clients receive and why they should choose you over competitors. Include information about your workflow and how you collaborate with clients during this process.</p>
+                    </div>
+                    
+                    <div class="consulting-item" data-aos="fade-up" data-aos-delay="300">
+                        <h4 class="expertise-area">Service Offering 3</h4>
+                        <p>Detail your methodology and what clients can expect when working with you. Describe any specialized equipment, software, or techniques you utilize. Explain how this service adds value or solves specific problems for your clients.</p>
+                    </div>
+                    
+                    <div class="consulting-item" data-aos="fade-up" data-aos-delay="350">
+                        <h4 class="expertise-area">Service Offering 4</h4>
+                        <p>Outline the process from initial consultation to final delivery. Describe your communication style and how you keep clients informed throughout the project. Highlight any guarantees, revisions, or support you provide as part of this service.</p>
+                    </div>
+                    
+                    <div class="consulting-item" data-aos="fade-up" data-aos-delay="400">
+                        <h4 class="expertise-area">Service Offering 5</h4>
+                        <p>Explain the benefits and outcomes clients can expect. Describe your experience with this type of work and any notable successes or client feedback. Mention if this service can be customized for different project scopes or budgets.</p>
+                    </div>
+                </div>
+                
+                <div class="consulting-approach" data-aos="fade-up" data-aos-delay="450">
+                    <p>Summarize your overall approach to client work. Describe your professional philosophy, communication style, and commitment to quality. This is a good place to mention your availability, typical response time, or any guarantees you offer across all services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 data-aos="fade-up">Contact</h2>
+            <div class="contact-info" data-aos="fade-up">
+                <div class="contact-item"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="Location" loading="lazy"><span>Your Location (Remote Available)</span></div>
+                <div class="contact-item"><a href="https://www.linkedin.com/in/your-linkedin/" target="_blank" rel="noopener noreferrer"><img src="images/ui/linkedinLogo.png" alt="LinkedIn" loading="lazy">linkedin.com/in/your-profile/</a></div>
+                <div class="contact-item"><a href="https://discord.gg/TWfa3A72" target="_blank" rel="noopener noreferrer"><img src="images/ui/discordLogo.png" alt="Discord" loading="lazy">Join our Template Discussion Server</a></div>
+            </div>
+            <form action="https://formspree.io/f/abcdeghi" method="POST" class="contact-form" data-aos="fade-up">
+                <label>
+                    Your email:
+                    <input type="email" name="email" placeholder="Your email" required>
+                </label>
+                <label>
+                    Subject:
+                    <input type="text" name="subject" placeholder="Subject of your message" required>
+                </label>
+                <label>
+                    Your message:
+                    <textarea name="message" placeholder="Your message" required></textarea>
+                </label>
+                <button type="submit">Send</button>
+            </form>
+            <div id="map" data-aos="fade-up">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13220.492024733287!2d-118.32518793022462!3d34.13430280000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bf07045279bf%3A0xf67a9a6797bdfae4!2sHollywood%20Sign!5e0!3m2!1sen!2sus!4v1706682400000!5m2!1sen!2sus" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>This site was built with Claude.AI and is available on Github<br>© 2025 Portfolio Template. Customize this with your information.</p>
+                <div class="footer-links">
+                    <a href="https://www.linkedin.com/in/your-linkedin/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://discord.gg/TWfa3A72" target="_blank" rel="noopener noreferrer">Discord Template Server</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript (Combined) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+</body>
 </html>
