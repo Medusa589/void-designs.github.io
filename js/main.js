@@ -1,33 +1,3 @@
-/**
- * Creative Portfolio Template - Main JavaScript
- * Author: John Huikku
- * Copyright © 2025 John Huikku
- * Support & Discussion: https://discord.gg/TWfa3A72
- * 
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
-/**
- * Main JavaScript file for Portfolio Template
- * Combined functionality from multiple scripts
- */
-
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize AOS (Animate on Scroll)
     AOS.init({
@@ -336,103 +306,60 @@ function initVideoModal() {
     });
 }
 
-/**
- * Initialize glitch effect for hero title
- * Simplified version with fewer fonts for better performance
- */
-function initGlitchEffect() {
-    const glitchTitle = document.querySelector('.glitch-title');
-    
-    if (!glitchTitle) {
-        console.warn('Glitch title element not found!');
-        return;
-    }
-    
-    // Reduced list of fonts for better performance
-    const rubikFonts = [
-        'Rubik Glitch',
-        'Rubik Vinyl',
-        'Rubik Glitch Pop',
-        'Rubik Lines',
-        'Rubik Broken Fax'
-    ];
-    
-    // Define color palette
-    const colors = ['#00FFFF', '#FFA500', '#FF4D4D', '#FFFFFF'];
-    
-    // Check if reduced motion is preferred
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
-    if (prefersReducedMotion) {
-        // Simplified effect for users who prefer reduced motion
-        glitchTitle.style.fontFamily = "'Rubik Glitch', sans-serif";
-        glitchTitle.style.color = '#FF4D4D';
-    } else {
-        // Store original text and styles for safety
-        const originalText = glitchTitle.textContent;
-        const originalColor = '#FF4D4D';
-        
-        // Last time a glitch occurred
-        let lastGlitchTime = 0;
-        
-        // Apply a random glitch effect
-        function performGlitch() {
-            try {
-                // Update timestamp to show the effect is still running
-                lastGlitchTime = Date.now();
-                
-                // Apply a new random font (80% chance)
-                if (Math.random() < 0.8) {
-                    const randomFont = rubikFonts[Math.floor(Math.random() * rubikFonts.length)];
-                    glitchTitle.style.fontFamily = `'${randomFont}', sans-serif`;
-                }
-                
-                // Apply a slight position offset (50% chance)
-                if (Math.random() < 0.5) {
-                    const randomX = Math.random() * 4 - 2; // -2 to 2px
-                    const randomY = Math.random() * 2 - 1; // -1 to 1px
-                    glitchTitle.style.transform = `translate(${randomX}px, ${randomY}px)`;
-                }
-                
-                // Change color (30% chance)
-                if (Math.random() < 0.3) {
-                    const randomColor = colors[Math.floor(Math.random() * colors.length)];
-                    glitchTitle.style.color = randomColor;
-                }
-                
-                // Restore text if somehow changed
-                if (glitchTitle.textContent !== originalText) {
-                    glitchTitle.textContent = originalText;
-                }
-            } catch (error) {
-                console.error("Error in glitch effect, trying to recover:", error);
-                
-                // Recover to default if error occurs
-                try {
-                    glitchTitle.style.fontFamily = "'Rubik Glitch', sans-serif";
-                    glitchTitle.style.color = originalColor;
-                    glitchTitle.style.transform = 'translate(0, 0)';
-                    glitchTitle.textContent = originalText;
-                } catch (e) {
-                    console.error("Failed to recover from error:", e);
-                }
-            }
-            
-            // Continue the glitch loop with a random delay
-            const randomDelay = Math.floor(Math.random() * 350) + 100; // 100-450ms
-            setTimeout(performGlitch, randomDelay);
-        }
-        
-        // Start the glitch loop after a slight delay
-        setTimeout(performGlitch, 1000);
-        
-        // Safety check - if glitch stops, restart it
-        setInterval(function() {
-            if (Date.now() - lastGlitchTime > 2000) {
-                // More than 2 seconds since last glitch, restart
-                console.log("Glitch effect seems to have stopped, restarting...");
-                performGlitch();
-            }
-        }, 3000);
-    }
+// === Years Worked Counter ===
+
+// Set your start date (format: YYYY-MM-DD)
+const startDate = new Date("2021-06-15");
+
+function updateYearsCounter() {
+  const now = new Date();
+  const diff = now - startDate;
+  const years = diff / (1000 * 60 * 60 * 24 * 365.25); // accounts for leap years
+  const counterEl = document.getElementById("years-counter");
+
+  if (counterEl) {
+    const rounded = Math.ceil(years * 4) / 4;
+    counterEl.textContent = rounded.toFixed(2);
+  }
 }
+
+// Run when DOM is ready
+document.addEventListener("DOMContentLoaded", updateYearsCounter);
+
+document.addEventListener('DOMContentLoaded', () => {
+  const tooltip = document.getElementById('video-tooltip');
+  const hero = document.querySelector('.hero');
+
+  if (tooltip && hero) {
+    hero.addEventListener('mousemove', (e) => {
+      const offset = 15; // offset from the cursor
+      tooltip.style.left = `${e.clientX + offset}px`;
+      tooltip.style.top = `${e.clientY + offset}px`;
+    });
+
+    hero.addEventListener('mouseenter', () => {
+      tooltip.style.opacity = '1';
+    });
+
+    hero.addEventListener('mouseleave', () => {
+      tooltip.style.opacity = '0';
+    });
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const video = document.getElementById('background-video');
+  const desiredTime = 0; // Set the desired time in seconds
+
+  if (video) {
+    video.addEventListener('loadedmetadata', () => {
+      if (video.paused) {
+        video.currentTime = desiredTime;
+      }
+    });
+
+    if (video.paused) {
+      video.currentTime = desiredTime;
+    }
+  }
+});
