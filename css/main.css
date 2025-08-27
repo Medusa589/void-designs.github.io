@@ -123,6 +123,7 @@ p {
 a {
     color: var(--color-text);
     transition: color var(--transition-fast);
+    display:inline-block
 }
 
 a:hover {
@@ -172,7 +173,6 @@ nav {
 
 .logo {
     color: var(--color-primary);
-    font-weight: bold;
     width: 100px;
 }
 
@@ -225,7 +225,7 @@ nav {
 
 .video-tooltip {
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.5);
   color: var(--color-text);
   padding: 8px 12px;
   border-radius: 4px;
@@ -234,11 +234,12 @@ nav {
   pointer-events: none;
   z-index: 999;
   opacity: 0;
-  transition: opacity 0.2s;
+  transition: opacity 0.4s;
 }
 
 .hero:hover .video-tooltip {
-  opacity: 1;
+    opacity: 1;
+    transition-delay: 0.3s;
 }
 
 #background-video {
@@ -257,7 +258,7 @@ nav {
     color: var(--color-text);
     padding: var(--spacing-md);
     max-width: 900px;
-    transform: translateY(100px); /* Move up to avoid interface elements */
+    transform: translateY(0px); /* Move up to avoid interface elements */
     margin-bottom: 80px;
 }
 

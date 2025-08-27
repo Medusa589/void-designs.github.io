@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Work Experience</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+  <h1>My Work Experience</h1>
+  <a href="index.html" class="home-button" title="Go to Home">Back</a>
+  <div class="timeline">
+    <div class="timeline-item left animate">
+      <h3>Lighting TD – WētāFX</h3>
+      <p>Wellington, New Zealand</p>
+      <p><strong>2021 – Present</strong></p>
+      <p>Working on render management, lighting optimization, and physically accurate output for feature films.</p>
+    </div>
+
+    <div class="timeline-item right animate">
+      <h3>CG Generalist - Dusk</h3>
+      <p><strong>2021 – 2023</strong></p>
+      <p>Wellington, New Zealand</p>
+      <p>Contributed to multiple game cinematics, focusing on mood lighting and technical setups.</p>
+    </div>
+
+    <div class="timeline-item left animate">
+      <h3>3D Generalist – Freelance</h3>
+      <p>Wellington, New Zealand</p>
+      <p><strong>2019 – 2021</strong></p>
+      <p>Handled modeling, shading, and lighting for various short films</p>
+    </div>
+
+    <div class="timeline-item right animate">
+      <h3>Student – Media Design School</h3>
+      <p>Auckland, New Zealand</p>
+      <p><strong>2016 – 2018</strong></p>
+      <p>First exposure to production pipeline, assisting with shot assembly and lighting reviews.</p>
+    </div>
+
+  </div>
+
+  <script>
+    // Animate items when they enter the viewport
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    });
+
+    document.querySelectorAll('.animate').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
