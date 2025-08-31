@@ -16,14 +16,16 @@ font-family: 'Roboto', 'Segoe UI', sans-serif;
   flex-direction: row;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0rem;
   background: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .sidebar {
   width: 30%;
-  padding: 2rem;
+  padding-left: 2rem;
+  padding-right: 1.5rem;
+  padding-top: 2rem;
   background-color: #b1b0a1;
   border-right: 1px solid #ccc;
 }
@@ -66,7 +68,7 @@ font-family: 'Roboto', 'Segoe UI', sans-serif;
 .sidebar .columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
+  gap: 0rem;
 }
 
 .main-content {

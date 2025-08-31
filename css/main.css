@@ -935,7 +935,7 @@ nav {
 
 /* ====================== FOOTER ====================== */
 footer {
-    padding: var(--spacing-md) var(--spacing-sm);
+    padding:  var(--spacing-sm);
     background-color: var(--color-background);
     text-align: center;
 }
@@ -953,21 +953,41 @@ footer {
 }
 
 .footer-links {
-    display: flex;
-    justify-content: right;
-    flex-wrap: wrap;
-    gap: var(--spacing-sm);
-    margin: var(--spacing-sm) 0;
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-sm, 1rem);
+  flex-wrap: wrap;
+  margin: var(--spacing-md, 1rem) 0;
 }
 
-.footer-links a {
-    transform: 50px 0;
-    transition: color var(--transition-fast);
+.footer-icon {
+  width: 60px;
+  height: 60px;
+  border: 1px solid var(--color-border, #555);
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #777;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
-.footer-links a:hover {
-    color: var(--color-primary);
+.footer-icon img {
+  width: 30px;
+  height: 30px;
+  fill: currentColor;
+  filter: grayscale(100%) brightness(85%);
 }
+
+.footer-icon:hover {
+  border-color: #fff;
+  color: #fff;
+  filter: brightness(100%);
+}
+
+.footer-icon:hover img {
+  filter: brightness(100%);
 
 /* ====================== RESPONSIVE STYLES ====================== */
 /* Medium screens and below (tablet and mobile) */

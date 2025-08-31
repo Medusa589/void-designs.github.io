@@ -269,41 +269,54 @@ function initVideoModal() {
     // Also handle entire portfolio-item clicks for better UX
     // But make sure we're completely preventing event bubbling
     document.querySelectorAll('.portfolio-item').forEach(item => {
-        item.addEventListener('click', function(e) {
-            // Get the click target
-            const target = e.target;
-            
-            // If the click is on a filter button or within the categories, don't proceed
-            if (target.closest('.portfolio-categories')) {
-                return true;
-            }
-            
-            // Prevent default behavior
-            e.preventDefault();
-            e.stopPropagation();
-            
-            const videoId = this.getAttribute('data-video-id');
-            const externalUrl = this.getAttribute('data-external-url');
-            
-            if (videoId) {
-                // YouTube embed
-                videoPlayer.innerHTML = `
-                    <iframe 
-                        src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0" 
-                        title="YouTube video player" 
-                        allowfullscreen
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-                    </iframe>
-                `;
-                videoModal.style.display = 'flex';
-                document.body.style.overflow = 'hidden'; // Prevent scrolling
-            } else if (externalUrl) {
-                window.open(externalUrl, '_blank');
-            }
-            
-            return false;
-        });
+    item.addEventListener('click', function(e) {
+        const target = e.target;
+
+        if (target.closest('.portfolio-categories')) {
+            return true;
+        }
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        const videoId = this.getAttribute('data-video-id');
+        const vimeoId = this.getAttribute('data-vimeo-id');
+        const externalUrl = this.getAttribute('data-external-url');
+
+        if (videoId) {
+            // YouTube embed
+            videoPlayer.innerHTML = `
+                <iframe 
+                    src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0" 
+                    title="YouTube video player" 
+                    allowfullscreen
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                </iframe>
+            `;
+            videoModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+
+        } else if (vimeoId) {
+            // Vimeo embed
+            videoPlayer.innerHTML = `
+                <iframe 
+                    src="https://player.vimeo.com/video/${vimeoId}?autoplay=1" 
+                    title="Vimeo video player"
+                    frameborder="0"
+                    allow="autoplay; fullscreen; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            `;
+            videoModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+
+        } else if (externalUrl) {
+            window.open(externalUrl, '_blank');
+        }
+
+        return false;
     });
+});
 }
 
 // === Years Worked Counter ===
