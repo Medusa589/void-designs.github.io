@@ -581,11 +581,28 @@ nav {
     background-color: var(--color-secondary);
 }
 
-.experience-buttons {
+.experience-buttons-wrapper {
     display: flex;
     justify-content: center;
     gap: var(--spacing-sm);
     margin-bottom: var(--spacing-md);
+    padding-top: 1rem;
+}
+
+.experience-button {
+    background-color: transparent;
+    border: 1px solid var(--color-border, #555);
+    border-radius: 25px;
+    color: var(--color-text);
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.experience-button:hover {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-text);
 }
 
 .experience-grid {
