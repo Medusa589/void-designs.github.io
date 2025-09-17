@@ -61,7 +61,7 @@ input, button, textarea, select {
     
     /* Typography Variables */
     --font-size-base: 16px;
-    --font-family-main: 'DIN Next Pro', 'DIN', 'Roboto', sans-serif;
+    --font-family-main: 'Roboto', sans-serif;
     
     /* Spacing Variables */
     --spacing-xs: 0.5rem;
